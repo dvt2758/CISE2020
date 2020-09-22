@@ -1,1 +1,1 @@
-web: node booking.html
+web: node app.js
