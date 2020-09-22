@@ -1,0 +1,138 @@
+<!--booking.html
+The front page of the booking function, allows user to place a booking at a specified date and time.
+@author Ben Zhang 15904358-->
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="ajax.js?version=2"> </script>
+      <script type ="text/javascript" defer src="validation.js?version=2"></script>
+	<title>Booking</title>
+	<h1>Booking Site</h1>
+</head>
+<body>
+<style>
+h1 {
+font-size: 40px;
+padding: 24px;
+}
+body {
+  background-color:#F5FFFA;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 10px;
+}
+.box{
+  display: -ms-flexbox; 
+  display: flex;
+  -ms-flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin: 0 16px;
+}
+
+
+#error:empty{
+  background-color: salmon;
+  display:inline-block;
+  width:180px;
+  color: red;
+  border:0px solid red;
+  font-size:; 10px;
+}
+#error{
+  background-color: salmon;
+  display:inline-block;
+  width:180px;
+  color: red;
+  border:3px solid red;
+  font-size:; 10px;
+}
+#booking-message{
+  position:absolute;
+  background-color: #90EE90;
+  display:inline-block;
+  width:600px;
+  color: green;
+  border:3px solid green;
+  font-size:; 10px;
+}
+#booking-message:empty{
+  background-color: #90EE90;
+  display:inline-block;
+  width:600px;
+  color: green;
+  border:0px solid green;
+  font-size:; 10px;
+}
+input[type=text],input[type=date],input[type=time] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=text]:focus {
+  border: 2px solid #555;
+}
+#booking-submit {
+  background-color: grey; 
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#booking-submit:hover {
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor:pointer;
+}
+a {
+    color: orange;
+    position: absolute;
+    bottom: 10px;
+}
+</style>
+
+<div class="box">
+    <div class="container">
+      <form id = "form">
+        <label for "name">Full Name</label>
+        <input id = "booking-name" type = "text" name = "name" placeholder = "John Smith" >
+        </br>
+        <label for "phone">Phone</label>
+        <input id = "booking-phone" type = "text" name = "phone" placeholder = "+64 22 123 4567">
+        </br>
+        <label for "address">Address</label>
+        <input id = "booking-address" type = "text" name = "address" placeholder = "123 Fake Street" >
+        </br>
+        <label for "address">Unit Number(If applicable)</label>
+        <input id = "booking-unit" type = "text" name = "unit" placeholder = "42A">
+        </br>
+        <label for "address">Suburb</label>
+        <input id = "booking-suburb" type = "text" name = "suburb" placeholder = "Epsom" >
+        </br>
+        <label for "date">Date</label>
+        <input id = "booking-date" type = "date" name = "date">
+        </br>
+         <label for "time">Time</label>
+        <input id = "booking-time" type = "time" name = "time">
+        </br>
+        <button id = "booking-submit" type = "submit" name = "submit" >Send</button>
+        </br>
+      </form>
+      <div id = "error"></div>
+      <div id = "booking-message"></div>
+    </div>
+</div>
+<a href = "admin.html">Navigate to booking.html</a>
+</body>
+</html>
