@@ -3,3 +3,8 @@ node_js:
   - '7'
 script: 
 - echo "hello world"
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: develop
