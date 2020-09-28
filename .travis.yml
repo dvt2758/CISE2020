@@ -4,7 +4,13 @@ node_js:
 script: 
 - echo "hello world"
 deploy:
-  provider: script
-  script: bash scripts/deploy.sh
+- provider: heroku
+  api_key: ...
+  app: app-production
   on:
-    branch: develop
+    branch: master
+- provider: heroku
+  api_key: ...
+  app: app-staging
+  on:
+    branch: staging
