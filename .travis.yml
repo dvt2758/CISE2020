@@ -6,11 +6,7 @@ script:
 deploy:
 - provider: heroku
   api_key: 09a323ae-c73f-4a67-bb46-cf253e4c46aa
-  app: app-production
+  app: cise2020
   on:
     branch: master
-- provider: heroku
-  api_key: 09a323ae-c73f-4a67-bb46-cf253e4c46aa
-  app: app-staging
-  on:
-    branch: staging
+
