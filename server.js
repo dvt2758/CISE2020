@@ -1,27 +1,21 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
+const methodOverride = require('method-override')
 const app = express()
 
 
-mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 app.set('view engine', 'ejs')
 
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
 
 
 
-app.get('/', (req, res) => {
-    const articles = [{
-        title: 'Test Article',
-        createdAt: new Date(),
-        description: ' Test Description'
-    },
-    {
-        title: 'Test Article 2',
-        createdAt: new Date(),
-        description: ' Test Description 2'
-    }]
+app.get('/', async (req, res) => {
+    const articles = await Article.find().sort({createdAt: 'desc'})         //Puts the most recent created articles on top
     res.render('articles/index', { articles: articles })
 })
 
