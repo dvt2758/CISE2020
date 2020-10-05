@@ -1,0 +1,12 @@
+Followed this tutorial: 
+
+https://www.youtube.com/watch?v=1NrHkjlWVhM - Pretty sure we can just use
+this as our template and add more to it. esp the search bar 
+
+GitHub Code for this tutorial: https://github.com/WebDevSimplified/Markdown-Blog
+
+
+I used visual studio code. In terminal install related dependencies. 
+This is shown in the tutorial above.
+
+
