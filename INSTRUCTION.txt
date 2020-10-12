@@ -1,0 +1,25 @@
+Followed this tutorial: 
+
+https://www.youtube.com/watch?v=1NrHkjlWVhM - Pretty sure we can just use
+this as our template and add more to it. esp the search bar 
+
+GitHub Code for this tutorial: https://github.com/WebDevSimplified/Markdown-Blog
+
+
+Before you run this. Make sure you have npm node js installed AND MongoDB installed. 
+
+MongoDB Installation: https://www.youtube.com/watch?v=OpKEw7093F8&ab_channel=CodeWithSpookie
+npm node js Installation: https://www.npmjs.com/get-npm
+
+1 - Clone github code
+2 - Open VSCode and open github CISE2020 folder
+3 - In terminal, make sure default shell is bash. Not ssh or some other shit.
+4 - copy & paste this to terminal	
+	npm i express mongodb ejs dompurify marked slugify jsdom
+5 - Once thats done installing copy and paste this to terminal again
+	npm i --save-dev nodemon
+6 - Once thats done installing you can start the server by:
+	npm run devStart
+7 - localhost is now running and just go to your browser and type in 
+	localhost:5000
+
