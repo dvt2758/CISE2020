@@ -2,6 +2,24 @@ const express = require('express')
 const Article = require('./../models/article')
 const router = express.Router()
 
+// All Articles Route
+router.get('/', async (req, res) => {
+    let searchOptions = {}
+    if(req.query.title != null && req.query.title !== '') {
+        searchOptions.title = new RegExp(req.query.title, 'i')
+    }
+    try {
+        const articles = await Article.find(searchOptions)
+        res.render('articles/index', {
+            articles: articles,
+            searchOptions: req.query
+        })
+    } catch {
+        res.redirect(`/articles/${article.slug}`)
+    }
+})
+
+
 router.get('/new', (req, res) => {
     res.render('articles/new', { article: new Article()})
 })
@@ -37,16 +55,22 @@ router.delete('/:id', async (req, res) => {
     res.redirect('/')
 })
 
+
+
 function saveArticleAndRedirect(path) {
+    
     return async (req, res) => {
         let article = req.article
         article.title = req.body.title
         article.description = req.body.description
         article.markdown = req.body.markdown
+
+       
     
         try {
             article = await article.save()
             res.redirect(`/articles/${article.slug}`)
+            //const article = await Article.find(searchOptions)
         } catch (e) {
             res.render(`articles/${path}`, { article: article})
         }

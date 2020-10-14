@@ -12,6 +12,14 @@
         <h1 class="mb-4">SEER Articles</h1>
         <a href="/articles/new" class="btn btn-success">Suggest Article</a>
 
+        <form action="/" method="GET">
+            <!-- <h3>Search Article</h3> -->
+            <br>
+            <input type="text" name="title" placeholder="Search Articles" >
+            <button type="submit" class="btn btn-info">Search</button>
+        </form>
+        <br>
+
         <% articles.forEach(article => { %>
             <div class="card mt-4">
                 <div class="card-body">

@@ -13,9 +13,9 @@ npm node js Installation: https://www.npmjs.com/get-npm
 
 1 - Clone github code
 2 - Open VSCode and open github CISE2020 folder
-3 - In terminal, make sure default shell is bash. Not ssh or some other shit.
+3 - In terminal, make sure default shell is bash. Not ssh or some other.
 4 - copy & paste this to terminal	
-	npm i express mongodb ejs dompurify marked slugify jsdom
+	npm i install
 5 - Once thats done installing copy and paste this to terminal again
 	npm i --save-dev nodemon
 6 - Once thats done installing you can start the server by:
