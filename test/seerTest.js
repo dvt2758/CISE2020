@@ -6,32 +6,30 @@ chaiHttp = require('chai-http');
 const { request } = require('chai');
 const { response } = require('express');
 const SEER = require('./../routes/articles');
+const article = require('./../models/article');
 
 chai.use(chaiHttp);
 
-describe('Field test for SEER Homepage', function(){
-
-    let article = SEER.get
-
-    it('check that the read more button only directs to but does not allow editing of the according page', function(){
+describe('Redirection test from SEER Homepage', () => {
+    it('Check that the read more button only redirects to but does not allow editing of the according page', () => {
         chai.request(SEER)
-            .get("articles/<%= article.slug %>")
-            .end((err, response) => {
-                expect(request).to.be.html;
-                response.should.have.status(true);
-                response.body.should.be.a('String');
-                //test if formfields enable editing - should fail 
-            done();
-            })
-        
-    })
-    
-    // it('check that the edit button directs to, access, and allow user to change the according page', function(){
-        
-    // });
-    
-    // it('check that the delete button removes the data off the database', function(){
-        
-    // })
+        .get('/:slug')
+        .end(function(err, res) {
+            expect(res).to.not.redirect("/edit/:id");
+            response.should.have.property('unique');
+            response.should.have.property('unique').eq('true');
+            response.body.should.be.a('String');
+            // done();
+        });
+    });
 
+    it('Check that the edit button redirects to and allows editing of the according page', () => {
+        chai.request(SEER)
+        .get('/edit/:id')
+        .end(function(err, res) {
+            expect(res).to.redirect("articles/edit");
+            expect(res).to.be.html; 
+            // done(); 
+        });
+    });
 });
