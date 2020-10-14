@@ -17,14 +17,19 @@ router.get('/', async (req, res) => {
              book: book
          })
      } catch {
-         
+         res.redirect('/books')
      } {
 
      }
   })
  //create books route
   router.post('/' , async (req, res) => {
-      res.send('Create book')
+      const book = new Book({
+          title: req.body.title,
+          author: req.body.author,
+          publishDate: new Date(req.body.publishDate),
+          description: req.body.description
+      })
 })
 
   module.exports = router
