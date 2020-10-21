@@ -1,0 +1,27 @@
+<h2 class="page-header">Search Journal</h2>
+<form action="/books" method="GET">
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" value="<%= searchOptions.title %>">
+  </div>
+  <div>
+    <label>Published After</label>
+    <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+  </div>
+  <div>
+    <label>Published Before</label>
+    <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+  </div>
+  <button type="submit">Search</button>
+</form>
+<div>
+  <% books.forEach(book => { %>
+    <br>
+      <div>Title: <%= book.title %> </div>
+       <div>Date Published: <%= book.publishDate.toISOString().split('T')[0] %></div>
+      <div> Description: <%= book.description %></div>
+      <br>
+      <br>
+</div>
+  <% }) %>
+</div>
