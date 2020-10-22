@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - '7'
 script: 
+install: npm
  test: 
 deploy:
 - provider: heroku
@@ -9,7 +10,7 @@ deploy:
   app: cise2020
   on:
     branch: master
-cache:
+cache: npm
 directories:
 - "node_modules"
 
