@@ -3,7 +3,7 @@ node_js:
   - '7'
 script: 
 test:
-
+- npm test
 deploy:
 - provider: heroku
   api_key: 09a323ae-c73f-4a67-bb46-cf253e4c46aa
@@ -12,6 +12,9 @@ deploy:
     branch: master
 cache: npm
 install:
+- cd backend
+- npm install
+- cd..
 - npm install
 directories:
 - "node_modules"
