@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - '7'
 script: 
-install: npm
+install:
+- npm install
  test: 
 deploy:
 - provider: heroku
